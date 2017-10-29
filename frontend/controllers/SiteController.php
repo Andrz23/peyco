@@ -16,6 +16,9 @@ use common\models\User;
 use yii\helpers\Html;
 use backend\models\Clientes;
 use backend\models\ClientesSearch;
+use backend\models\Pedido;
+use backend\models\PedidoSearch;
+use yii\web\NotFoundHttpException;
 
 
 /**
@@ -313,6 +316,26 @@ class SiteController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+    public function actionPedido()
+    {
+
+         $model = new Pedido();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $id = Yii::$app->user->identity->id;
+           // return $this->redirect(['viewPedido', 'id' => $model->id_pedido]);
+            return $this->render('viewPedido', [                
+                'model' => $model,]);
+
+        } else {
+            return $this->render('pedido', [
+                'model' => $model,
+            ]);
         }
     }
 
