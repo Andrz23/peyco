@@ -33,6 +33,7 @@
                     //['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'Frontend', 'url' => ['../../frontend/web/site/index']],
                     ['label' => 'Productos', 'url' => ['producto/index']],
                     ['label' => 'Color', 'url' => ['color/index']],
                     ['label' => 'Materiales', 'url' => ['materiales/index']],

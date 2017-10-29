@@ -3,8 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use app\models\Estado;
-use app\models\Municipio;
+use backend\models\Estado;
+use backend\models\Municipio;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Pedido */
@@ -39,7 +39,7 @@ use app\models\Municipio;
 
     <?= $form->field($model, 'medidas')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'tipo_stand')->textInput(['maxlength' => true]) ?>
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

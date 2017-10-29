@@ -57,7 +57,7 @@ class Pedido extends \yii\db\ActiveRecord
             [['fecha_pedido'], 'safe'],
             [['direccion', 'medidas'], 'string', 'max' => 20],
             [['municipio_id', 'default' => 1], 'exist', 'skipOnError' => true, 'targetClass' => Municipio::className(), 'targetAttribute' => ['municipio_id' => 'id_municipio']],
-            [['estado_id', 'default' => 1], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id_estado']],
+            [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id_estado']],
             [['cliente_id'], 'exist', 'skipOnError' => true, 'targetClass' => Clientes::className(), 'targetAttribute' => ['cliente_id' => 'id']],
 
         ];
@@ -72,7 +72,7 @@ class Pedido extends \yii\db\ActiveRecord
             'id_pedido' => 'Id Pedido',
             'cliente_id' => 'Ccliente ID',
             'fecha_pedido' => 'Fecha Pedido',
-            'estado_id' => 'Estado',
+            'estado_id' => 'Estado ID',
             'municipio_id' => 'Municipio',
             'direccion' => 'Direccion',
             'medidas' => 'Medidas',
