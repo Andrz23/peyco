@@ -37,6 +37,7 @@
                     ['label' => 'Color', 'url' => ['color/index']],
                     ['label' => 'Materiales', 'url' => ['materiales/index']],
                     ['label' => 'Clientes', 'url' => ['clientes/index']],
+                    ['label' => 'Pedidos', 'url' => ['pedidos/index']],
                     ['label' => 'Cotización', 'url' => ['cotizacion/index']],
                     [
                         'label' => 'Same tools',
