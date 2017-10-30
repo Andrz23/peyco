@@ -70,7 +70,7 @@ class Pedido extends \yii\db\ActiveRecord
     {
         return [
             'id_pedido' => 'Id Pedido',
-            'cliente_id' => 'Ccliente ID',
+            'cliente_id' => 'Cliente ID',
             'fecha_pedido' => 'Fecha Pedido',
             'estado_id' => 'Estado ID',
             'municipio_id' => 'Municipio',
