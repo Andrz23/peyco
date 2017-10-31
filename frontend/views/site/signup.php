@@ -7,37 +7,42 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Signup';
+$this->title = 'Formulario de Registro';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to signup:</p>
+    <p>Para registrarse por favor ingresar la información solicitada en los campos:</p>
 
     <div class="row">
-        <div class="col-lg-5">
+        
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
-                <?= $form->field($model, 'nombres')->textInput(['autofocus' => true]) ?>
+                
 
-                 <?= $form->field($model, 'apellidos')->textInput() ?>
+                  <div class="col-sm-6"><?= $form->field($model, 'nombres')->textInput(['autofocus' => true]) ?></div>
+
+                 <div class="col-sm-6"><?= $form->field($model, 'apellidos')->textInput() ?></div>
 
                   <!-- $form->field($model, 'cedula')->textInput() -->
 
-                 <?= $form->field($model, 'telefono')->textInput() ?>
+                 <div class="col-sm-6"><?= $form->field($model, 'telefono')->textInput() ?></div>
 
-                 <?= $form->field($model, 'username')->textInput() ?>
+                 <div class="col-sm-6"><?= $form->field($model, 'username')->textInput() ?></div>
 
-                <?= $form->field($model, 'email') ?>
+                <div class="col-sm-6"><?= $form->field($model, 'email') ?></div>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                <div class="col-sm-6"><?= $form->field($model, 'password')->passwordInput() ?></div>
+
+
 
                 <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+              <?= Html::submitButton('Enviar', ['class' => 'btn btn-success']) ?>
                 </div>
+
 
             <?php ActiveForm::end(); ?>
         </div>
     </div>
-</div>
+

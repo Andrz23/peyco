@@ -30,11 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
             //'auth_key',
             //'access_token',
             //'activate',
-            'status',
+            //'status',
             'created_at',
             //'updated_at',
             //'role',
         ],
     ]) ?>
+
+    <p><?= Html::a('Actualizar', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?></p>
 
 </div>
