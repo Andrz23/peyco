@@ -13,7 +13,14 @@
                             <div class="item active">
                                 
                                 <div class="col-sm-6">
-                                    
+                                    <h2 align="center"><span>Nuestros Productos</span></h2>
+                                    <p align="center">Excelente Diseño</p>
+                                    <p align="center">Buena Calidad</p>
+                                    <p align="center">Buenos Precios</p>
+                                    <p align="center">Facilidad de Pagos</p>
+                                    <h1 align="center"><span>PE&CO</span></h1>
+                                </div>
+                                <div class="col-sm-6">
                                     <img src="/peyco/backend/web/img/stand.jpg" class="girl img-responsive" alt="mesa" />
                                 </div>
                             </div>
@@ -23,7 +30,14 @@
                                                 foreach ($data as $col=>$value) {
                                                     ?>
                             <div class="item">
-                                
+                                <div class="col-sm-6">
+                                    <h2 align="center"><span>Nuestros Productos</span></h2>
+                                    <p align="center">Excelente Diseño</p>
+                                    <p align="center">Buena Calidad</p>
+                                    <p align="center">Buenos Precios</p>
+                                    <p align="center">Facilidad de Pagos</p>
+                                    <h1 align="center"><span>PE&CO</span></h1>
+                                </div>
                                 <div class="col-sm-6">
                                     <img src="<?= '/peyco/backend/web/img/'.$value['imag_adju']  ?>" alt="" class="img-rounded" height="300" width="300">
                                 </div>                                
