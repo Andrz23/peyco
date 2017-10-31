@@ -11,12 +11,7 @@
                         
                         <div class="carousel-inner">
                             <div class="item active">
-                                <div class="col-sm-6">
-                                    <h1><span>P</span>-&CO</h1>
-                                    <h2>Free E-Commerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
+                                
                                 <div class="col-sm-6">
                                     
                                     <img src="/peyco/backend/web/img/stand.jpg" class="girl img-responsive" alt="mesa" />
@@ -24,23 +19,11 @@
                             </div>
 
                                               <?php
-                                             $query = (new \yii\db\Query())
-                                                ->select('*')
-                                                ->from('producto');
-                                            // Crea un commando
-                                            $command = $query->createCommand();
-                                            // Ejecuta el commando
-                                            $rows = $command->queryAll();
                                                            
-                                                foreach ($rows as $col=>$value) {
+                                                foreach ($data as $col=>$value) {
                                                     ?>
                             <div class="item">
-                                <div class="col-sm-6">
-                                    <h1><span>E</span>-PE&CO</h1>
-                                    <h2>PE&CO Ecommerce Template</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing a. </p>
-                                    <button type="button" class="btn btn-default get">Get it now</button>
-                                </div>
+                                
                                 <div class="col-sm-6">
                                     <img src="<?= '/peyco/backend/web/img/'.$value['imag_adju']  ?>" alt="" class="img-rounded" height="300" width="300">
                                 </div>                                
