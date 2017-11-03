@@ -19,7 +19,7 @@ use backend\models\ClientesSearch;
 use backend\models\Pedido;
 use backend\models\PedidoSearch;
 use yii\web\NotFoundHttpException;
-
+use yii\swiftmailer\Mailer;
 
 /**
  * Site controller
@@ -223,17 +223,29 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $model = new SignupForm();
+         
         if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(["site/login"]);
+            
+                if ($user = $model->signup()) {
+                    if (Yii::$app->getUser()->login($user)) {
+                        if ($model->sendEmail($model->email)) {
+                            if ($model->confirm(Yii::$app->user->getId())) {
+                         Yii::$app->session->setFlash('success', 'Debe confirmar el registro en la cuenta de correo.');
+                        return $this->redirect(["site/login"]);
+                        } else {
+                            Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+                                return $this->render('signup', [
+                                    'model' => $model,
+                                ]);
+                            }
+                        }
+                    }
                 }
             }
-        }
 
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+            return $this->render('signup', [
+                'model' => $model,
+            ]);
     }
 
     /**
@@ -352,5 +364,24 @@ class SiteController extends Controller
             ]);
         }
     }
+
+
+    public function actionConfirm()
+    {
+        $model = new User;
+        if (Yii::$app->request->get())
+        {       
+            if ($model->confirm(Yii::$app->user->identity->id)) {
+
+                return $this->render('login', [                
+                'model' => $model,]);
+            } else {
+            return $this->render('signup', [
+                'model' => $model,
+            ]);
+        }
+
+        }
+     }
 
 }

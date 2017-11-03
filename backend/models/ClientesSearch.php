@@ -19,7 +19,7 @@ class ClientesSearch extends Clientes
     {
         return [
             [['id', 'telefono', 'activate', 'status', 'role'], 'integer'],
-            [['nombres', 'apellidos', 'username', 'email', 'password_hash', 'auth_key', 'access_token', 'created_at', 'updated_at'], 'safe'],
+            [['nombres', 'apellidos', 'username', 'email', 'password', 'authKey', 'access_token', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -73,8 +73,8 @@ class ClientesSearch extends Clientes
             ->andFilterWhere(['like', 'apellidos', $this->apellidos])
             ->andFilterWhere(['like', 'username', $this->username])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'password_hash', $this->password_hash])
-            ->andFilterWhere(['like', 'auth_key', $this->auth_key])
+            ->andFilterWhere(['like', 'password', $this->password])
+            ->andFilterWhere(['like', 'authKey', $this->authKey])
             ->andFilterWhere(['like', 'access_token', $this->access_token]);
 
         return $dataProvider;
