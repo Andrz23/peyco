@@ -19,11 +19,11 @@ use yii\helpers\Html;
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 
                                 <li><?=Html::a('Inicio', ['/site/index'] ) ?> </li>
-                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Compras<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         
                                         <li><?=Html::a('Products', ['/site/shop'] ) ?> </li>
-                                        <li><a href="product-details.php">Product Details</a></li> 
+                                        <li><a href="product-details.php">Productos Detalles</a></li> 
                                         
                                         <li><?=Html::a('Cart', ['/site/cart'], ['class'=>"fa fa-shopping-cart"] ) ?> </li>
                                         <li><?=Html::a('Login', ['/site/login'] ) ?> </li>
@@ -31,8 +31,8 @@ use yii\helpers\Html;
                                     </ul>
                                 </li> 
                                 
-                                <li><?=Html::a('Cart', ['/site/cart'], ['class'=>"fa fa-shopping-cart"] ) ?> </li>
-                                <li><?=Html::a('Contact', ['/site/contact'] ) ?> </li>
+                                <li><?=Html::a('Compras', ['/site/cart'], ['class'=>"fa fa-shopping-cart"] ) ?> </li>
+                                <li><?=Html::a('Contacto', ['/site/contact'] ) ?> </li>
                                 
                             </ul>
                         </div>

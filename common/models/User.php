@@ -30,7 +30,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     public static function tableName()
     {        
-        return '{{%user}}';
+        return '{{%user_old}}';
         
     }
 
@@ -219,4 +219,11 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+
+    public function generatePassword()
+    {
+        $this->password = Yii::$app->security->generateRandomString();
+    }
+
 }

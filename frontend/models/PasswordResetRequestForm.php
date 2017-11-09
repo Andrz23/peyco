@@ -53,16 +53,20 @@ class PasswordResetRequestForm extends Model
                 return false;
             }
         }
-
+       
+        $body = "Recuperación de contraseña: ";        
+        $body .= " http://localhost/peyco/frontend/web/site/reset-password?token=".$user->password_reset_token;
+        
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
-                ['user' => $user]
+                 //['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],                
+                 ['user' => $user]
             )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->setFrom([Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'])
             ->setTo($this->email)
             ->setSubject('Password reset for ' . Yii::$app->name)
+            ->setTextBody($body)
             ->send();
     }
 }

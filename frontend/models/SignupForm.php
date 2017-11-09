@@ -59,10 +59,10 @@ class SignupForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este email ha sido registrado previamente.'],
 
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
+            //['password', 'required'],
+            //['password', 'string', 'min' => 6],
         ];
     }
 
@@ -96,22 +96,23 @@ class SignupForm extends Model
        // $user->cedula = $this->cedula;
         $user->telefono = $this->telefono;
         $user->username = $this->username;
-        $user->email = $this->email;
-        $user->setPassword($this->password);
+        $user->email = $this->email;        
+        $user->setPassword($this->apellidos.$this->telefono);        
         $user->generateAuthKey();
-        
+                
         return $user->save() ? $user : null;
     }
 
     public function sendEmail($email)
     {
         $id = Yii::$app->user->identity->id;
-        $authKey = Yii::$app->user->identity->authKey;
+        $apellidos = Yii::$app->user->identity->apellidos;
+        $telefono = Yii::$app->user->identity->telefono;
 
-        $subject = "Confirmar registro";
-        $body = "<h2>Click en el enlace para finalizar registro</h2>";
-        $body .= "<a href = http://localhost/sergio/peyco/frontend/web/index.php?r=site/login/confirm&id=" . $id . "&authKey=" . $authKey . ">Confirmar</a>";
-
+        $subject = "Contraseña";
+        $body = "Copie la contraseña y peguela en el login: ";
+        $body .= $apellidos . $telefono;
+        
         return Yii::$app->mailer->compose()
              ->setTo($email)
              ->setFrom([\Yii::$app->params['adminEmail']])
@@ -122,47 +123,5 @@ class SignupForm extends Model
            
 
      
-    public function confirm()
-    {
-            
-            $id = Yii::$app->user->identity->id;
-            $authKey = Yii::$app->user->identity->authKey;
-        
-            if ($id)           
-            {
-                return
-                //Realizamos la consulta para obtener el registro
-               
-                $model = User::find()->where("id=:id", [":id" => $id])
-                ->andWhere("authKey=:authKey", [":authKey" => $authKey]);
-     
-                //Si el registro existe
-                if ($model->count() == 1)
-                {
-                    $activar = User::findOne($id);
-                    $activar->activate = 1;
-                    if ($activar->update())
-                    {
-                        echo "Enhorabuena registro llevado a cabo correctamente, redireccionando ...";
-                        echo "<meta http-equiv='refresh' content='8; ".Url::toRoute("site/login")."'>";
-                        return update();
-                    }
-                    else
-                    {
-                        echo "Ha ocurrido un error al realizar el registro, redireccionando ...";
-                        echo "<meta http-equiv='refresh' content='8; ".Url::toRoute("site/login")."'>";
-                    }
-                 }
-                else //Si no existe redireccionamos a login
-                {
-                    return $this->redirect(["site/login"]);
-                }
-            }
-            else //Si id no es un número entero redireccionamos a login
-            {
-                return $this->redirect(["site/login"]);
-            }
-        
-     }
 
 }

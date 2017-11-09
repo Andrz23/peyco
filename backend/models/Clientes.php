@@ -31,7 +31,7 @@ class Clientes extends \yii\db\ActiveRecord
     public static function tableName()
     {
         //return 'clientes';
-        return 'user';
+        return 'user_old';
     }
 
     /**
@@ -47,7 +47,7 @@ class Clientes extends \yii\db\ActiveRecord
             [['email'], 'string', 'max' => 30],
             [['password'], 'string', 'max' => 60],
             [['authKey'], 'string', 'max' => 32],
-            [['access_token'], 'string', 'max' => 250],
+            [['password_reset_token'], 'string', 'max' => 250],
         ];
     }
 
@@ -66,7 +66,7 @@ class Clientes extends \yii\db\ActiveRecord
             'email' => 'Email',
             'password' => 'Password',
             'authKey' => 'Auth Key',
-            'access_token' => 'Access Token',
+            'password_reset_token' => 'Token',
             'activate' => 'Activate',
             'status' => 'Status',
             'created_at' => 'Created At',
