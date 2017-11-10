@@ -43,6 +43,7 @@ use yii\widgets\ActiveForm;
 
     //$form->field($model, 'role')->textInput() 
  -->
+  <div class="col-sm-6"><?=$form->field($model, 'role')->textInput()?></div>
     </div>
 
     <div class="form-group">

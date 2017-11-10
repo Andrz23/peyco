@@ -19,7 +19,7 @@ use yii\helpers\Html;
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 
                                 <li><?=Html::a('Inicio', ['/site/index'] ) ?> </li>
-                                <li class="dropdown"><a href="#">Compras<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         
                                         <li><?=Html::a('Products', ['/site/shop'] ) ?> </li>

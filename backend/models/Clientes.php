@@ -31,7 +31,7 @@ class Clientes extends \yii\db\ActiveRecord
     public static function tableName()
     {
         //return 'clientes';
-        return 'user_old';
+        return 'user';
     }
 
     /**
@@ -40,7 +40,7 @@ class Clientes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombres', 'apellidos', 'telefono', 'username', 'email', 'password', 'authKey', 'created_at'], 'required'],
+            [['nombres', 'apellidos', 'telefono', 'username', 'email'], 'required'],
             [['telefono', 'activate', 'status', 'role'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['nombres', 'apellidos', 'username'], 'string', 'max' => 20],
