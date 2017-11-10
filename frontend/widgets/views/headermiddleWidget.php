@@ -46,10 +46,7 @@ use common\models\User;
                             ]);
                                 
                             $menuItems = [
-                                ['label' => 'Inicio', 'url' => ['/site/index']],
-                                
-                                //['label' => 'Cart', 'url' => ['/site/cart']],
-                                ['label' => 'Contacto', 'url' => ['/site/contact']],
+                                ['label' => 'Inicio', 'url' => ['/site/index']],                                
                             ];      
                                if (Yii::$app->user->isGuest) {
                                         $menuItems[] = ['label' => 'Registrarse', ['class'], 'url' => ['/site/signup']];
@@ -60,7 +57,7 @@ use common\models\User;
                                         $menuItems[] = '<li>'
                                             . Html::beginForm(['/site/logout'], 'post')
                                             . Html::submitButton(
-                                                'Logout (' . Yii::$app->user->identity->username . ')',
+                                                'Logout (' . Yii::$app->user->identity->nombres . ')',
                                                 ['class' => 'btn btn-link logout']
                                             )
                                             . Html::endForm()

@@ -34,6 +34,7 @@
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Frontend', 'url' => ['../../frontend/web/site/index']],
+                    ['label' => 'Registro Admin', 'url' => ['clientes/create']],
                     ['label' => 'Productos', 'url' => ['producto/index']],
                     ['label' => 'Color', 'url' => ['color/index']],
                     ['label' => 'Materiales', 'url' => ['materiales/index']],

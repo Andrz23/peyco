@@ -52,7 +52,7 @@ class SignupForm extends Model
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
-            ['username', 'match','pattern'=>"/^[0-9a-z]+$/i",'message'=> 'Solo se aceptan números y letras'],
+            ['username', 'match', 'pattern' => "/^[0-9a-z]+$/i", 'message' => 'Solo se aceptan números y letras'],
 
 
             ['email', 'trim'],
@@ -69,13 +69,13 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'nombres' => 'Nombres',
-            'apellidos' => 'Apellidos',
+            'nombres' => 'Nombre',
+            'apellidos' => 'Apellido',
             //'cedula' => 'Cedula',
             'telefono' => 'Teléfono',
-            'email'=>'Email',
-            'username'=>'Usuario',
-            'password'=>'Contraseña',
+            'email' => 'Email',
+            'username' => 'Usuario',
+            'password' => 'Contraseña',
         ];
     }
 
@@ -110,7 +110,7 @@ class SignupForm extends Model
         $telefono = Yii::$app->user->identity->telefono;
 
         $subject = "Contraseña";
-        $body = "Copie la contraseña y peguela en el login: ";
+        $body = "Contraseña de ingreso en el login: ";
         $body .= $apellidos . $telefono;
         
         return Yii::$app->mailer->compose()

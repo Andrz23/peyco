@@ -4,6 +4,7 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use common\models\User;
+use yii\helpers\Html;
 
 /**
  * Password reset request form
@@ -53,10 +54,12 @@ class PasswordResetRequestForm extends Model
                 return false;
             }
         }
-       
-        $body = "Recuperación de contraseña: ";        
+        
+        
+        $body = "Click para registrar nueva contraseña: ";        
         $body .= " http://localhost/peyco/frontend/web/site/reset-password?token=".$user->password_reset_token;
         
+       
         return Yii::$app
             ->mailer
             ->compose(
