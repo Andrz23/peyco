@@ -18,7 +18,7 @@ class ClientesSearch extends Clientes
     public function rules()
     {
         return [
-            [['id', 'telefono', 'activate', 'status', 'role'], 'integer'],
+            [['id', 'telefono', 'activate', 'role'], 'integer'],
             [['nombres', 'apellidos', 'username', 'email', 'password', 'authKey', 'password_reset_token', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -63,7 +63,7 @@ class ClientesSearch extends Clientes
             //'cedula' => $this->cedula,
             'telefono' => $this->telefono,
             'activate' => $this->activate,
-            'status' => $this->status,
+            //'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'role' => $this->role,

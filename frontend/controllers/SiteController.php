@@ -365,22 +365,4 @@ class SiteController extends Controller
     }
 
 
-    // public function actionConfirm()
-    // {
-    //     $model = new User;
-    //     if (Yii::$app->request->get())
-    //     {       
-    //         if ($model->confirm(Yii::$app->user->identity->id)) {
-
-    //             return $this->render('login', [                
-    //             'model' => $model,]);
-    //         } else {
-    //         return $this->render('signup', [
-    //             'model' => $model,
-    //         ]);
-    //     }
-
-    //     }
-    //  }
-
 }

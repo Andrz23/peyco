@@ -41,7 +41,7 @@ class Clientes extends \yii\db\ActiveRecord
     {
         return [
             [['nombres', 'apellidos', 'telefono', 'username', 'email'], 'required'],
-            [['telefono', 'activate', 'status', 'role'], 'integer'],
+            [['telefono', 'activate', 'role'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['nombres', 'apellidos', 'username'], 'string', 'max' => 20],
             [['email'], 'string', 'max' => 30],
@@ -68,7 +68,7 @@ class Clientes extends \yii\db\ActiveRecord
             'authKey' => 'Auth Key',
             'password_reset_token' => 'Token',
             'activate' => 'Activate',
-            'status' => 'Status',
+            //'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'role' => 'Role',

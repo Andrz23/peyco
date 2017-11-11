@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="pedido-view">
 
-    <h2><?= $id = Yii::$app->user->identity->nombres; ?></h2>
+    <h2><?= $id = Yii::$app->user->identity->nombres .' '. Yii::$app->user->identity->apellidos; ?></h2>
         
     <?= DetailView::widget([
         

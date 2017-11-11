@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="pedido-form">
     
-    <h1><?= $id = Yii::$app->user->identity->nombres; ?></h1>
+    <h1><?= $id = Yii::$app->user->identity->nombres .' '. Yii::$app->user->identity->apellidos; ?></h1>
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'pedido-form']); ?>
