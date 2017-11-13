@@ -3,6 +3,13 @@
 namespace backend\models;
 
 use Yii;
+// use common\models\User;
+use yii\base\NotSupportedException;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
+use yii\db\Expression;
+
 
 /**
  * This is the model class for table "clientes".
@@ -74,4 +81,7 @@ class Clientes extends \yii\db\ActiveRecord
             'role' => 'Role',
         ];
     }
+
+    
+
 }

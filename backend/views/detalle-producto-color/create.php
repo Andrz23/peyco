@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Cotizacion */
+/* @var $model backend\models\DetalleProductoColor */
 
-$this->title = 'Cotizar productos';
-$this->params['breadcrumbs'][] = ['label' => 'Cotizacions', 'url' => ['index']];
+$this->title = 'Create Detalle Producto Color';
+$this->params['breadcrumbs'][] = ['label' => 'Detalle Producto Colors', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cotizacion-create">
+<div class="detalle-producto-color-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Pedido;
-use backend\models\PedidoSearch;
+use backend\models\DetalleProductoMaterial;
+use backend\models\DetalleProductoMaterialSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\models\User;
 
 /**
- * PedidoController implements the CRUD actions for Pedido model.
+ * DetalleProductoMaterialController implements the CRUD actions for DetalleProductoMaterial model.
  */
-class PedidoController extends Controller
+class DetalleProductoMaterialController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,12 +30,12 @@ class PedidoController extends Controller
     }
 
     /**
-     * Lists all Pedido models.
+     * Lists all DetalleProductoMaterial models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PedidoSearch();
+        $searchModel = new DetalleProductoMaterialSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +45,7 @@ class PedidoController extends Controller
     }
 
     /**
-     * Displays a single Pedido model.
+     * Displays a single DetalleProductoMaterial model.
      * @param integer $id
      * @return mixed
      */
@@ -58,16 +57,16 @@ class PedidoController extends Controller
     }
 
     /**
-     * Creates a new Pedido model.
+     * Creates a new DetalleProductoMaterial model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Pedido();
+        $model = new DetalleProductoMaterial();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_pedido]);
+            return $this->redirect(['view', 'id' => $model->id_dpm]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -76,7 +75,7 @@ class PedidoController extends Controller
     }
 
     /**
-     * Updates an existing Pedido model.
+     * Updates an existing DetalleProductoMaterial model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -86,7 +85,7 @@ class PedidoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_pedido]);
+            return $this->redirect(['view', 'id' => $model->id_dpm]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -95,7 +94,7 @@ class PedidoController extends Controller
     }
 
     /**
-     * Deletes an existing Pedido model.
+     * Deletes an existing DetalleProductoMaterial model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,32 +106,16 @@ class PedidoController extends Controller
         return $this->redirect(['index']);
     }
 
-
-    public function actionDesactiv($id)
-    {
-        $model = $this->findModel($id);
-        
-        if ($model->estado_id == 1) {
-            $model->estado_id = 2;
-            $model->save();           
-            return $this->redirect(['index']);
-        } else {            
-             $model->estado_id = 1;
-            $model->save();
-            return $this->redirect(['index']);
-        }
-    }
-
     /**
-     * Finds the Pedido model based on its primary key value.
+     * Finds the DetalleProductoMaterial model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Pedido the loaded model
+     * @return DetalleProductoMaterial the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Pedido::findOne($id)) !== null) {
+        if (($model = DetalleProductoMaterial::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

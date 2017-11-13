@@ -151,6 +151,6 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->redirect(["../../frontend/web/site/index"]);
+         return $this->redirect(["../../frontend/web/site/index"]);
     }
 }

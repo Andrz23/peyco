@@ -349,11 +349,10 @@ class SiteController extends Controller
     {
 
          $model = new Pedido();
+         $model->cliente_id = Yii::$app->user->identity->id;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-           
-           $model->cliente_id = Yii::$app->user->identity->id; 
-           // return $this->redirect(['viewPedido', 'id' => $model->id_pedido]);
+          
             return $this->render('viewPedido', [                
                 'model' => $model,]);
 

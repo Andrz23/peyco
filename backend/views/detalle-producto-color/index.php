@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\CotizacionSearch */
+/* @var $searchModel backend\models\DetalleProductoColorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cotizacions';
+$this->title = 'Detalle Producto Colors';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cotizacion-index">
+<div class="detalle-producto-color-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Cotizar productos', ['create'], ['class' => 'btn btn-success']) ?>
+        <!--?= Html::a('Create Detalle Producto Color', ['create'], ['class' => 'btn btn-success']) ?-->
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,12 +24,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id_cotizacion',
-            'cliente_id',
+            'id_dpc',
             'producto_id',
-            'fecha',
+            'color_id',
+            'cantidad',
+            'estado_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+            'template' => '{view}',
+            ],
         ],
     ]); ?>
 </div>

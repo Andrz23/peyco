@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\DetalleMaterialPedido;
+use backend\models\DetalleProductoColor;
 
 /**
- * DetalleMaterialPedidoSearch represents the model behind the search form about `app\models\DetalleMaterialPedido`.
+ * DetalleProductoColorSearch represents the model behind the search form about `backend\models\DetalleProductoColor`.
  */
-class DetalleMaterialPedidoSearch extends DetalleMaterialPedido
+class DetalleProductoColorSearch extends DetalleProductoColor
 {
     /**
      * @inheritdoc
@@ -18,8 +18,7 @@ class DetalleMaterialPedidoSearch extends DetalleMaterialPedido
     public function rules()
     {
         return [
-            [['id_dmp', 'material_id', 'pedido_id'], 'integer'],
-            [['costo'], 'safe'],
+            [['id_dpc', 'producto_id', 'color_id', 'cantidad', 'estado_id'], 'integer'],
         ];
     }
 
@@ -41,7 +40,7 @@ class DetalleMaterialPedidoSearch extends DetalleMaterialPedido
      */
     public function search($params)
     {
-        $query = DetalleMaterialPedido::find();
+        $query = DetalleProductoColor::find();
 
         // add conditions that should always apply here
 
@@ -59,12 +58,12 @@ class DetalleMaterialPedidoSearch extends DetalleMaterialPedido
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_dmp' => $this->id_dmp,
-            'material_id' => $this->material_id,            
-            'pedido_id' => $this->pedido_id,
+            'id_dpc' => $this->id_dpc,
+            'producto_id' => $this->producto_id,
+            'color_id' => $this->color_id,
+            'cantidad' => $this->cantidad,
+            'estado_id' => $this->estado_id,
         ]);
-
-        $query->andFilterWhere(['like', 'costo', $this->costo]);
 
         return $dataProvider;
     }
