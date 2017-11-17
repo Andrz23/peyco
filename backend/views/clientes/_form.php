@@ -29,6 +29,10 @@ use yii\bootstrap\ActiveForm;
 
     <div class="col-sm-6"><?= $form->field($model, 'password')->passwordInput() ?></div>
 
+    <div class="col-sm-2"><?= $form->field($model, 'role')->DropDownList(['1' => 1, '2' => 2],
+                                  [
+                                            'default'=> '1'
+                                  ]);  ?></div>
     
    <!--  //$form->field($model, 'auth_key')->textInput(['maxlength' => true]) 
 
@@ -44,7 +48,6 @@ use yii\bootstrap\ActiveForm;
 
     //$form->field($model, 'role')->textInput() 
  -->
-  <div class="col-sm-6"><?=$form->field($model, 'role')->textInput(['value' => 1]) ?></div>
     </div>
 
     <div class="form-group">

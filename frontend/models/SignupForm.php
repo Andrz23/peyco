@@ -46,13 +46,13 @@ class SignupForm extends Model
             ['telefono', 'trim'],
             ['telefono', 'required'],
             //['telefono', 'integer'],
-            ['telefono', 'match','pattern'=>"/^[0-9]+$/i",'message'=> 'Solo se aceptan números'],
+            ['telefono', 'match','pattern'=>"/^[0-9]+$/i",'message'=> 'Solo se aceptan números, sin espacio entre estos.'],
 
             ['username', 'trim'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
-            ['username', 'match', 'pattern' => "/^[0-9a-z]+$/i", 'message' => 'Solo se aceptan números y letras'],
+            ['username', 'match', 'pattern' => "/^[0-9a-z]+$/i", 'message' => 'Solo se aceptan números y letras, sin espacio entre estos.'],
 
 
             ['email', 'trim'],
@@ -60,7 +60,9 @@ class SignupForm extends Model
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'Este email ha sido registrado previamente.'],
-
+            
+            ['email', 'match', 'pattern' => '/^[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/', 'message' => 'Dirección de correo no válida.'],
+            
             //['password', 'required'],
             //['password', 'string', 'min' => 6],
         ];

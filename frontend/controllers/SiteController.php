@@ -20,6 +20,8 @@ use backend\models\Pedido;
 use backend\models\PedidoSearch;
 use yii\web\NotFoundHttpException;
 use yii\swiftmailer\Mailer;
+use yii\web\UploadedFile;
+use yii\base\model;
 
 /**
  * Site controller
@@ -229,8 +231,10 @@ class SiteController extends Controller
                     if (Yii::$app->getUser()->login($user)) {
                         if ($model->sendEmail($model->email)) {
                            // if ($model->confirm(Yii::$app->user->getId())) {
+                         Yii::$app->user->logout();
                          Yii::$app->session->setFlash('success', 'Registro Exitoso. La contraseña de ingreso ha sido enviada a su correo.');
-                        return $this->redirect(["site/login"]);
+                            
+                            return $this->render('index');
                         } else {
                             Yii::$app->session->setFlash('error', 'Ha ocurrido un error en el envío del mensaje.');
                                 return $this->render('signup', [
@@ -361,6 +365,14 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+
+
+    public function actionAyuda()
+    {
+
+        return $this->render('ayudausuarios');
+        
     }
 
 
