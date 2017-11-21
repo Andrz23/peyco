@@ -30,7 +30,7 @@ class Color extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_color', 'nombre', 'num_color'], 'required'],
+            [['nombre'], 'required'],
             [['id_color'], 'integer'],
             [['nombre', 'num_color'], 'string', 'max' => 20],
         ];

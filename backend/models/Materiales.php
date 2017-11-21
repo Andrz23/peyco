@@ -30,7 +30,7 @@ class Materiales extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_mate', 'nombre'], 'required'],
+            [['nombre'], 'required'],
             [['id_mate'], 'integer'],
             [['nombre'], 'string', 'max' => 20],
         ];
@@ -44,6 +44,7 @@ class Materiales extends \yii\db\ActiveRecord
         return [
             'id_mate' => 'Id Mate',
             'nombre' => 'Nombre',
+            'estado' => 'Estado',
         ];
     }
 

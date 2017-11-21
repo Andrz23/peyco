@@ -21,13 +21,45 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'rowOptions' =>function($model){
+
+            if ($model->estado == '2') {
+                return['class'=>'danger'];
+
+            }elseif ($model->estado == '1') {
+                return['class'=>'success'];
+                }
+            },
+
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_mate',
             'nombre',
+            'estado',
 
             ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',               
+                'template' => '{desactiv}',
+                'buttons' => [
+                    'desactiv' => function ($url, $model) {
+                        if ($model->estado == '1'){
+                            return Html::a('<span class="glyphicon glyphicon-thumbs-down"></span>', $url,
+                                [
+                                    'title' => Yii::t('app', 'Desactivar'),
+                                    'data-confirm' => Yii::t('yii', 'Esta seguro que desea Desactivar este Material?'),
+                                ]);
+                        } else {
+                            return Html::a('<span class="glyphicon glyphicon-thumbs-up"></span>', $url,
+                                [
+                                    'title' => Yii::t('app', 'Activar'),
+                                    'data-confirm' => Yii::t('yii', 'Esta seguro que desea Activar este Material?'),
+                                ]);
+                        }
+                    }
+                ]
+            ],
         ],
     ]); ?>
 </div>

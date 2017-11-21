@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\bootstrap\Modal;
-use yii\grid\DataColumn;
+// use yii\bootstrap\Modal;
+// use yii\grid\DataColumn;
 
 
 /* @var $this yii\web\View */
@@ -11,6 +11,7 @@ use yii\grid\DataColumn;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Productos';
+$this->params['breadcrumbs'][] = ['label' => 'Productos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="producto-index">
@@ -19,11 +20,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Registrar Producto', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Producto', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'rowOptions' =>function($model){
+        'rowOptions' => function($model){
 
             if ($model->estado_id=='2') {
                 return['class'=>'danger'];
@@ -58,28 +60,28 @@ $this->params['breadcrumbs'][] = $this->title;
              //'color_id',
             // 'cantidad_color',
             // 'materiales_id',
-
+             
             ['class' => 'yii\grid\ActionColumn'],
             [
                 'class' => 'yii\grid\ActionColumn',               
                 'template' => '{desactiv}',
                 'buttons' => [
                     'desactiv' => function ($url, $model) {
-                        if ($model->estado_id == 1){
+                        if ($model->estado_id == '1'){
                             return Html::a('<span class="glyphicon glyphicon-thumbs-down"></span>', $url,
-                                [
+                                [                                    
                                     'title' => Yii::t('app', 'Desactivar'),
                                     'data-confirm' => Yii::t('yii', 'Esta seguro que quiere Desactivar este Producto?'),
                                 ]);
                         } else {
                             return Html::a('<span class="glyphicon glyphicon-thumbs-up"></span>', $url,
-                                [
+                                [                                   
                                     'title' => Yii::t('app', 'Activar'),
                                     'data-confirm' => Yii::t('yii', 'Esta seguro que quiere Activar este Producto?'),
                                 ]);
                         }
                     }
-                ]
+                ],
             ],
         ],
     ]); ?>

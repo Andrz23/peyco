@@ -19,7 +19,7 @@ class ProductoSearch extends Producto
     {
         return [
             [['id_producto', 'cod_clasifi', 'unidades', 'estado_id', 'color_id', 'cantidad_color', 'materiales_id'], 'integer'],
-            [['nombre', 'dimension_producto', 'costo'], 'safe'],
+            [['nombre', 'costo'], 'safe'],
         ];
     }
 
@@ -67,10 +67,11 @@ class ProductoSearch extends Producto
             'color_id' => $this->color_id,
             'cantidad_color' => $this->cantidad_color,
             'materiales_id' => $this->materiales_id,
+            
         ]);
 
         $query->andFilterWhere(['like', 'nombre', $this->nombre])
-            ->andFilterWhere(['like', 'dimension_producto', $this->dimension_producto])
+            // ->andFilterWhere(['like', 'dimension_producto', $this->dimension_producto])
             /*->andFilterWhere(['like', 'imag_adju', $this->imag_adju])*/
             ->andFilterWhere(['like', 'costo', $this->costo]);
 
