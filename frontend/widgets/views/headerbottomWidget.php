@@ -1,5 +1,7 @@
  <?php 
 use yii\helpers\Html; 
+use yii\bootstrap\Modal;
+// use yii\apidoc\templates\pdf\GuideRenderer;
 
   ?>
 
@@ -19,7 +21,7 @@ use yii\helpers\Html;
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 
                                 <li><?=Html::a('Inicio', ['/site/index'] ) ?> </li>
-                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                <li class="dropdown"><a href="#">Productos<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         
                                         <li><?=Html::a('Products', ['/site/shop'] ) ?> </li>
@@ -38,9 +40,20 @@ use yii\helpers\Html;
                         </div>
                     </div>
                     <div class="col-sm-3">
+                        <!-- <div class="navbar pull-left">
+                            
+                            <!php Modal::begin([
+                                        'header' => 'Help',
+                                        'toggleButton' => ['label' => 'Ayuda'],
+                                    ]);
+                                    echo 'Say help...';
+                                    Modal::end();
+                                    ?-->
+                        </div>
                         <div class="search_box pull-right">
                             <!-- <input type="text" placeholder="Ayuda"/> -->
-                            <?=Html::a('Ayuda', ['/archivos/ayudausuarios'] ) ?>
+                            <!--?=Html::a('Ayuda', ['/archivos/ayudausuarios'] target("_blank") )  ?-->
+                            <a href="/peyco/frontend/web/archivos/ayudausuarios" target="_blank">Ayuda</a>
                         </div>
                     </div>
                 </div>

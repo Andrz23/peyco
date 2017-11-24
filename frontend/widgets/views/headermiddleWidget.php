@@ -6,6 +6,7 @@ use yii\bootstrap\NavBar;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
 use common\models\User;
+// use yii\bootstrap\Modal;
   ?>
 
 
@@ -37,6 +38,7 @@ use common\models\User;
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
+                                
                                <li><?php NavBar::begin([
                                 //'brandLabel' => 'PEYCO',
                                 'brandUrl' => Yii::$app->homeUrl,
@@ -45,9 +47,9 @@ use common\models\User;
                                 ],
                             ]);
                                 
-                            $menuItems = [
-                                ['label' => 'Inicio', 'url' => ['/site/index']],                                
-                            ];      
+                            // $menuItems = [
+                            //     ['label' => 'Inicio', 'url' => ['/site/index']],                                
+                            // ];     
                                if (Yii::$app->user->isGuest) {
                                         $menuItems[] = ['label' => 'Registrarse', ['class'], 'url' => ['/site/signup']];
                                         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];

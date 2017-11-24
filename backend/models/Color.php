@@ -33,6 +33,8 @@ class Color extends \yii\db\ActiveRecord
             [['nombre'], 'required'],
             [['id_color'], 'integer'],
             [['nombre', 'num_color'], 'string', 'max' => 20],
+            ['nombre', 'match','pattern'=>"/^[a-z]+$/i",'message'=> 'Solo acepta letras'],
+            ['num_color', 'match', 'pattern' => "/^[0-9a-z]+$/i", 'message' => 'Solo acepta números y letras, sin espacio entre estos.'],
         ];
     }
 

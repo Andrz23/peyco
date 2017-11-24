@@ -18,8 +18,8 @@ class ProductoSearch extends Producto
     public function rules()
     {
         return [
-            [['id_producto', 'cod_clasifi', 'unidades', 'estado_id', 'color_id', 'cantidad_color', 'materiales_id'], 'integer'],
-            [['nombre', 'costo'], 'safe'],
+            [['id_producto', 'unidades', 'estado_id', 'color_id', 'cantidad_color', 'materiales_id'], 'integer'],
+            [['nombre', 'cod_clasifi', 'costo'], 'safe'],
         ];
     }
 
@@ -57,11 +57,13 @@ class ProductoSearch extends Producto
             return $dataProvider;
         }
 
+        $query->joinWith('codClasifi');
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id_producto' => $this->id_producto,
             
-            'cod_clasifi' => $this->cod_clasifi,
+            // 'cod_clasifi' => $this->cod_clasifi,
             'unidades' => $this->unidades,
             'estado_id' => $this->estado_id,
             'color_id' => $this->color_id,
@@ -73,7 +75,8 @@ class ProductoSearch extends Producto
         $query->andFilterWhere(['like', 'nombre', $this->nombre])
             // ->andFilterWhere(['like', 'dimension_producto', $this->dimension_producto])
             /*->andFilterWhere(['like', 'imag_adju', $this->imag_adju])*/
-            ->andFilterWhere(['like', 'costo', $this->costo]);
+            ->andFilterWhere(['like', 'costo', $this->costo])
+             ->andFilterWhere(['like', 'clasificacion.descripcion', $this->cod_clasifi]);
 
         return $dataProvider;
     }

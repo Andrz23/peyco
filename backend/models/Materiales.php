@@ -33,6 +33,7 @@ class Materiales extends \yii\db\ActiveRecord
             [['nombre'], 'required'],
             [['id_mate'], 'integer'],
             [['nombre'], 'string', 'max' => 20],
+            ['nombre', 'match','pattern'=>"/^[a-z]+$/i",'message'=> 'Solo se aceptan letras'],
         ];
     }
 

@@ -89,6 +89,22 @@
                         ],
                     ],
 
+                    [
+                        'label' => 'Reportes',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
+                            // ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
+                            //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
+                            // ['label' => 'Cotización-Productos', 'url' => ['detalle-cotizacion-productos/index']],
+                            // ['label' => 'Material-Pedido', 'url' => ['detalle-material-pedido/index']],
+                            // ['label' => 'Detalle Fase', 'url' => ['detalle-fase/index']],
+                            //['label' => 'Detalle Stand', 'url' => ['detalle-stand/index']],
+                            ['label' => 'Producto Color Sin Existencias', 'url' => ['detalle-producto-color/index']],
+                            ['label' => 'Producto Material Sin Existencias', 'url' => ['detalle-producto-material/index']],
+                        ],
+                    ],
+
                     // [
                     //     'label' => 'Same tools',
                     //     'icon' => 'share',

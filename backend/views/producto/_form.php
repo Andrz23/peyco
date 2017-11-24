@@ -20,7 +20,7 @@ use backend\models\Estado;
 
     <div class="row">
 
-    <!--?= $form->field($model, 'id_producto')->textInput(['maxlength' => true]) ?-->
+    <div class="col-sm-4"><?= $form->field($model, 'id_producto')->textInput(['maxlength' => true]) ?></div>
 
     <div class="col-sm-4"><?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?></div>
 

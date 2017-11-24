@@ -30,6 +30,7 @@ class Clasificacion extends \yii\db\ActiveRecord
             [['descripcion'], 'required'],
             // [['id_clasifi'], 'integer'],
             [['descripcion'], 'string', 'min' => 3, 'max' => 20],
+            ['descripcion', 'match','pattern'=>"/^[a-z]+$/i",'message'=> 'Solo acepta letras'],
         ];
     }
 

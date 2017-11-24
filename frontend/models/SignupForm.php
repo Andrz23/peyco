@@ -45,7 +45,7 @@ class SignupForm extends Model
 
             ['telefono', 'trim'],
             ['telefono', 'required'],
-            ['telefono', 'string', 'min' => 7, 'max' => 12],
+            ['telefono', 'string', 'min' => 7, 'max' => 7],            
             //['telefono', 'integer'],
             ['telefono', 'match','pattern'=>"/^[0-9]+$/i",'message'=> 'Solo se aceptan números, sin espacio entre estos.'],
 
@@ -64,7 +64,7 @@ class SignupForm extends Model
             
             // ['email', 'match', 'pattern' => '/^[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@yahoo.com$/', 'message' => 'Dirección de correo no válida.'],
             
-            ['email', 'match', 'pattern' => '/^[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/', 'message' => 'Dirección de correo no válida.'],
+            ['email', 'match', 'pattern' => '/^[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-z](?:[a-z-]*[a-z])?\.)+[a-z](?:[a-z-]*[a-z])?$/', 'message' => 'Dirección de correo no válida.'],
             
             //['password', 'required'],
             //['password', 'string', 'min' => 6],

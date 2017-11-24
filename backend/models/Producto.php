@@ -77,18 +77,18 @@ class Producto extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_producto' => 'Id Producto',
+            'id_producto' => 'Referencia',
             'nombre' => 'Nombre',            
-            'cod_clasifi' => 'Cod Clasifi',
+            'cod_clasifi' => 'Categoria',
             'dimension_producto' => 'Dimension Producto',
             'imgfile' => 'Imgfile',
             'imag_adju' => 'Imag Adju',
             'unidades' => 'Unidades',
             'costo' => 'Costo',
-            'estado_id' => 'Estado ID',
-            'color_id' => 'Color ID',
+            'estado_id' => 'Estado',
+            'color_id' => 'Colores',
             'cantidad_color' => 'Cantidad Color',
-            'materiales_id' => 'Materiales ID',
+            'materiales_id' => 'Materiales',
             
         ];
     }
